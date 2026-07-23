@@ -46,7 +46,7 @@ export default function Gallery() {
               animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               onClick={() => setSelected(i)}
-              className={`group relative aspect-[4/3] overflow-hidden rounded-sm ${img.span}`}
+              className={`group relative aspect-[4/3] overflow-hidden rounded-sm bg-cream-dark ${img.span}`}
             >
               <img
                 src={img.src}
