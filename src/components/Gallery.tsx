@@ -4,13 +4,15 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 
 const images = [
-  { src: "/images/gallery-1.jpg", alt: "Lobby with marble finishes", span: "lg:col-span-2 lg:row-span-2" },
-  { src: "/images/gallery-2.jpg", alt: "Infinity pool at sunset", span: "" },
-  { src: "/images/gallery-3.jpg", alt: "Living room interior", span: "" },
-  { src: "/images/gallery-4.jpg", alt: "Rooftop garden", span: "lg:col-span-2" },
-  { src: "/images/gallery-5.jpg", alt: "Master bedroom suite", span: "" },
-  { src: "/images/gallery-6.jpg", alt: "Private dining room", span: "" },
-  { src: "/images/gallery-7.jpg", alt: "Sunset skyline view", span: "lg:col-span-2 lg:row-span-2" },
+  { src: "/images/gallery-1.webp", alt: "Room with big bed in peach color", span: "lg:col-span-2 lg:row-span-2" },
+  { src: "/images/gallery-2.webp", alt: "Top terrace view with blue glass", span: "" },
+  { src: "/images/gallery-3.webp", alt: "Living room with white table and TV", span: "" },
+  { src: "/images/gallery-4.webp", alt: "Living room with peach chairs", span: "lg:col-span-2" },
+  { src: "/images/gallery-5.webp", alt: "Living room with brown settings", span: "" },
+  { src: "/images/gallery-6.webp", alt: "Living room with brown settings and TV", span: "" },
+  { src: "/images/gallery-7.webp", alt: "Living room with brown settings and TV left side view", span: "" },
+  { src: "/images/gallery-8.webp", alt: "Living room with bright lights", span: "" },
+  { src: "/images/gallery-9.webp", alt: "Living room with brown curtains", span: "lg:col-span-2 lg:row-span-2" },
 ];
 
 export default function Gallery() {

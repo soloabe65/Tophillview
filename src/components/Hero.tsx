@@ -16,7 +16,7 @@ export default function Hero() {
     <section id="hero" className="relative h-screen w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url(/images/hero-fallback.jpg)" }}
+        style={{ backgroundImage: "url(/images/hero-fallback.webp)" }}
       />
       <video
         ref={videoRef}
@@ -24,7 +24,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        poster="/images/hero-fallback.jpg"
+        poster="/images/hero-fallback.webp"
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
