@@ -14,6 +14,10 @@ export default function Hero() {
 
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/hero-fallback.jpg)" }}
+      />
       <video
         ref={videoRef}
         autoPlay

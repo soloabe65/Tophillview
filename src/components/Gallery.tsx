@@ -48,19 +48,17 @@ export default function Gallery() {
               onClick={() => setSelected(i)}
               className={`group relative aspect-[4/3] overflow-hidden rounded-sm ${img.span}`}
             >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="h-full w-full object-cover transition-all duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 transition-all duration-500 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
                 <p className="font-sans text-xs uppercase tracking-[0.15em] text-white">
                   {img.alt}
                 </p>
-              </div>
-              <div className="flex h-full w-full items-center justify-center bg-cream-dark text-stone-light">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="h-12 w-12">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" />
-                </svg>
-                <span className="sr-only">{img.alt}</span>
               </div>
             </motion.button>
           ))}
@@ -82,13 +80,11 @@ export default function Gallery() {
               exit={{ scale: 0.9, opacity: 0 }}
               className="relative max-h-[85vh] max-w-4xl"
             >
-              <div className="flex aspect-[4/3] w-full max-w-3xl items-center justify-center bg-charcoal-light">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="h-20 w-20 text-stone">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                  <circle cx="8.5" cy="8.5" r="1.5" />
-                  <polyline points="21 15 16 10 5 21" />
-                </svg>
-              </div>
+              <img
+                src={images[selected].src}
+                alt={images[selected].alt}
+                className="max-h-[85vh] w-auto max-w-full rounded-sm object-contain"
+              />
               <button
                 onClick={() => setSelected(null)}
                 className="absolute -top-12 right-0 text-white/60 transition-colors hover:text-white"
