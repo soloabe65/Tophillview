@@ -6,9 +6,14 @@ import { useInView } from "framer-motion";
 
 const amenities = [
   {
-    img: "/images/gallery-2.webp",
-    title: "Bar & Lounge",
-    description: "Relax and socialize in our elegant bar and lounge area — the perfect spot to unwind.",
+    img: "/images/amenity-bar.webp",
+    title: "Bar",
+    description: "Step up to our elegantly stocked bar — premium drinks, expert service, and a warm glow that sets the mood for the evening.",
+  },
+  {
+    img: "/images/amenity-lounge.webp",
+    title: "Lounge",
+    description: "Sink into deep seating bathed in cool blue light. Cocktails in hand, soft conversation in the air — the perfect night in.",
   },
   {
     img: "/images/gallery-5.webp",
@@ -19,11 +24,6 @@ const amenities = [
     img: "/images/gallery-6.webp",
     title: "24/7 Power Supply",
     description: "Uninterrupted electricity with round-the-clock backup — comfort you can rely on.",
-  },
-  {
-    img: "/images/gallery-7.webp",
-    title: "Sophisticated Bar",
-    description: "Unwind and socialize at our elegant bar spaces — where every evening feels special.",
   },
   {
     img: "/images/gallery-8.webp",
