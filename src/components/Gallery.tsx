@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 
 const images = [
   { src: "/images/gallery-1.webp", alt: "Room with big bed in peach color" },
@@ -28,13 +28,11 @@ export default function Gallery() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const [active, setActive] = useState(0);
-  const [direction, setDirection] = useState(1);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
 
   useEffect(() => {
     if (!inView) return;
     intervalRef.current = setInterval(() => {
-      setDirection(1);
       setActive((prev) => (prev + 1) % images.length);
     }, 4000);
     return () => clearInterval(intervalRef.current);
@@ -42,15 +40,8 @@ export default function Gallery() {
 
   function goTo(i: number) {
     clearInterval(intervalRef.current);
-    setDirection(i > active ? 1 : -1);
     setActive(i);
   }
-
-  const variants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 300 : -300, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (dir: number) => ({ x: dir > 0 ? -300 : 300, opacity: 0 }),
-  };
 
   return (
     <section id="gallery" ref={ref} className="relative bg-cream">
@@ -72,56 +63,45 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        <div className="relative mt-16 overflow-hidden rounded-sm bg-charcoal/5">
-          <div className="relative mx-auto aspect-[16/9] max-h-[65vh] w-full lg:max-h-[75vh]">
-            <AnimatePresence custom={direction} mode="popLayout">
-              <motion.img
-                key={active}
-                src={images[active].src}
-                alt={images[active].alt}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
+        <div className="relative mx-auto mt-16 aspect-[16/9] max-h-[70vh] w-full">
+          {images.map((img, i) => {
+            const stackIndex = (i - active + images.length) % images.length;
+            const isTop = stackIndex === 0;
+
+            return (
+              <motion.button
+                key={img.alt}
+                onClick={() => goTo(i)}
+                animate={{
+                  x: isTop ? 0 : 8 + stackIndex * 6,
+                  y: isTop ? 0 : 8 + stackIndex * 6,
+                  scale: isTop ? 1 : 1 - stackIndex * 0.015,
+                  opacity: isTop ? 1 : Math.max(0.1, 0.35 - stackIndex * 0.025),
+                  zIndex: images.length - stackIndex,
+                }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            </AnimatePresence>
-
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal/60 to-transparent p-8">
-              <p className="font-sans text-xs uppercase tracking-[0.2em] text-white/80">
-                {images[active].alt}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-6 grid grid-cols-6 gap-2 md:grid-cols-9">
-          {images.map((img, i) => (
-            <motion.button
-              key={img.alt}
-              onClick={() => goTo(i)}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: i * 0.03 }}
-              className="group relative aspect-[4/3] overflow-hidden rounded-xs"
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110"
-                loading="lazy"
-              />
-              <div
-                className={`absolute inset-0 transition-all duration-500 ${
-                  i === active
-                    ? "bg-transparent ring-2 ring-gold"
-                    : "bg-charcoal/50 group-hover:bg-charcoal/30"
-                }`}
-              />
-            </motion.button>
-          ))}
+                className="absolute inset-0 overflow-hidden rounded-sm"
+                style={{ pointerEvents: isTop ? "auto" : "none" }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+                {!isTop && (
+                  <div className="absolute inset-0 bg-charcoal/60" />
+                )}
+                {isTop && (
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-charcoal/60 to-transparent p-8">
+                    <p className="font-sans text-xs uppercase tracking-[0.2em] text-white/80">
+                      {img.alt}
+                    </p>
+                  </div>
+                )}
+              </motion.button>
+            );
+          })}
         </div>
       </div>
     </section>
