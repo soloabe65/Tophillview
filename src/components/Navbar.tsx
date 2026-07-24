@@ -11,6 +11,10 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
+const navCta = [
+  { label: "Book Now", href: "/booking" },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -62,6 +66,16 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <a
+            href="/booking"
+            className={`rounded-full px-6 py-2.5 font-sans text-xs uppercase tracking-[0.15em] transition-all duration-300 hover:bg-gold-dark ${
+              scrolled
+                ? "bg-gold text-charcoal"
+                : "bg-gold text-charcoal"
+            }`}
+          >
+            Book Now
+          </a>
           <a
             href="#contact"
             className={`rounded-full border px-6 py-2.5 font-sans text-xs uppercase tracking-[0.15em] transition-all duration-300 hover:bg-gold hover:text-charcoal hover:border-gold ${
@@ -129,9 +143,16 @@ export default function Navbar() {
                 </a>
               ))}
               <a
+                href="/booking"
+                onClick={() => setMobileOpen(false)}
+                className="inline-block self-start rounded-full bg-gold px-8 py-3 font-sans text-xs uppercase tracking-[0.15em] text-charcoal transition-all hover:bg-gold-dark"
+              >
+                Book Now
+              </a>
+              <a
                 href="#contact"
                 onClick={() => setMobileOpen(false)}
-                className="mt-4 inline-block self-start rounded-full border border-gold px-8 py-3 font-sans text-xs uppercase tracking-[0.15em] text-gold transition-all hover:bg-gold hover:text-charcoal"
+                className="inline-block self-start rounded-full border border-gold px-8 py-3 font-sans text-xs uppercase tracking-[0.15em] text-gold transition-all hover:bg-gold hover:text-charcoal"
               >
                 Inquire
               </a>
