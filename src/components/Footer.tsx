@@ -38,17 +38,25 @@ export default function Footer() {
 
           <div>
             <h4 className="font-sans text-xs uppercase tracking-[0.25em] text-gold">
-              Sales Gallery
+              Quick Links
             </h4>
-            <p className="mt-6 font-body text-base leading-relaxed text-stone-light">
-              Open daily by appointment
-            </p>
-            <p className="mt-2 font-body text-base text-stone-light">
-              Mon — Sat: 10 AM — 7 PM
-            </p>
-            <p className="font-body text-base text-stone-light">
-              Sunday: 12 PM — 5 PM
-            </p>
+            <nav className="mt-6 flex flex-col gap-3">
+              <a href="/#residences" className="font-body text-base text-stone-light transition-colors hover:text-gold-light">
+                Residences
+              </a>
+              <a href="/#amenities" className="font-body text-base text-stone-light transition-colors hover:text-gold-light">
+                Amenities
+              </a>
+              <a href="/#gallery" className="font-body text-base text-stone-light transition-colors hover:text-gold-light">
+                Gallery
+              </a>
+              <a href="/#location" className="font-body text-base text-stone-light transition-colors hover:text-gold-light">
+                Location
+              </a>
+              <a href="/booking" className="font-body text-base text-stone-light transition-colors hover:text-gold-light">
+                Book Now
+              </a>
+            </nav>
           </div>
         </div>
 

@@ -42,17 +42,6 @@ export default function Hero() {
       />
 
       <div className="relative flex h-full flex-col items-center justify-center px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-4"
-        >
-          <span className="font-sans text-xs uppercase tracking-[0.4em] text-gold-light">
-            Kubwa Estate, Beside The Kubwa General Hospital
-          </span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -64,16 +53,6 @@ export default function Hero() {
           <span className="text-gold">VIEW</span>
         </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-white/70 md:text-xl"
-        >
-          Kubwa Estate, Beside The Kubwa General Hospital — where elegance and
-          sophistication meet unparalleled comfort.
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -81,13 +60,13 @@ export default function Hero() {
           className="mt-10 flex gap-6"
         >
           <a
-            href="#residences"
+            href="/#residences"
             className="rounded-full border border-gold bg-gold px-10 py-4 font-sans text-xs uppercase tracking-[0.15em] text-charcoal transition-all duration-300 hover:bg-gold-dark hover:border-gold-dark"
           >
             Explore Apartments
           </a>
           <a
-            href="#gallery"
+            href="/#gallery"
             className="rounded-full border border-white/40 px-10 py-4 font-sans text-xs uppercase tracking-[0.15em] text-white transition-all duration-300 hover:border-white hover:bg-white/10"
           >
             View Gallery

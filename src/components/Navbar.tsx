@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { label: "Residences", href: "#residences" },
-  { label: "Amenities", href: "#amenities" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Location", href: "#location" },
+  { label: "Residences", href: "/#residences" },
+  { label: "Amenities", href: "/#amenities" },
+  { label: "Gallery", href: "/#gallery" },
+  { label: "Location", href: "/#location" },
 ];
 
 export default function Navbar() {
@@ -73,7 +73,7 @@ export default function Navbar() {
             Book Now
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className={`rounded-full border px-6 py-2.5 font-sans text-xs uppercase tracking-[0.15em] transition-all duration-300 hover:bg-gold hover:text-charcoal hover:border-gold ${
               scrolled
                 ? "border-gold text-gold"
@@ -146,7 +146,7 @@ export default function Navbar() {
                 Book Now
               </a>
               <a
-                href="#contact"
+                href="/#contact"
                 onClick={() => setMobileOpen(false)}
                 className="inline-block self-start rounded-full border border-gold px-8 py-3 font-sans text-xs uppercase tracking-[0.15em] text-gold transition-all hover:bg-gold hover:text-charcoal"
               >
