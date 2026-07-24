@@ -74,7 +74,7 @@ export default function BookingWizard() {
     const room = rooms[selectedRoom];
     roomTotal = room.price * (room.period === "/night" ? nights : 1);
     cautionFee = room.cautionFee;
-    if (nights >= 7) discount = 0.15;
+    if (nights >= 7) discount = 0.05;
   }
   const discountAmount = roomTotal * discount;
   const finalTotal = roomTotal - discountAmount + cautionFee;
@@ -121,7 +121,7 @@ export default function BookingWizard() {
         ? formatPrice(room.price) + " x " + nights + " nights = " + formatPrice(room.price * nights)
         : formatPrice(room.price) + " (flat rate)",
       "Caution fee: " + formatPrice(room.cautionFee),
-      discount > 0 ? "Discount (15%): -" + formatPrice(discountAmount) : "",
+      discount > 0 ? "Discount (5%): -" + formatPrice(discountAmount) : "",
       "Total: " + formatPrice(finalTotal),
       "",
       form.specialRequests.trim() ? "*Special Requests*\n" + form.specialRequests.trim() : "",
@@ -357,7 +357,7 @@ export default function BookingWizard() {
                               {selected ? "Selected" : "Available"}
                             </span>
                             <span className="inline-block rounded-full bg-amber-500 px-3 py-1 font-sans text-[10px] uppercase tracking-[0.1em] text-charcoal">
-                              15% off 7+ nights
+                              5% off 7+ nights
                             </span>
                           </div>
                         </div>
@@ -401,7 +401,7 @@ export default function BookingWizard() {
                     <>
                       <p className="mt-1 font-body text-2xl text-stone-light line-through">{formatPrice(roomTotal + cautionFee)}</p>
                       <p className="font-body text-base text-green-400">
-                        15% Long Stay Discount: &minus;{formatPrice(discountAmount)}
+                        5% Long Stay Discount: &minus;{formatPrice(discountAmount)}
                       </p>
                     </>
                   )}
@@ -589,7 +589,7 @@ export default function BookingWizard() {
                     <>
                       <p className="mt-1 font-body text-2xl text-stone-light line-through">{formatPrice(roomTotal + cautionFee)}</p>
                       <p className="font-body text-base text-green-400">
-                        15% Long Stay Discount: &minus;{formatPrice(discountAmount)}
+                        5% Long Stay Discount: &minus;{formatPrice(discountAmount)}
                       </p>
                     </>
                   )}
