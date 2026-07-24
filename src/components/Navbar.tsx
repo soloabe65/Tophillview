@@ -8,11 +8,6 @@ const navLinks = [
   { label: "Amenities", href: "#amenities" },
   { label: "Gallery", href: "#gallery" },
   { label: "Location", href: "#location" },
-  { label: "Contact", href: "#contact" },
-];
-
-const navCta = [
-  { label: "Book Now", href: "/booking" },
 ];
 
 export default function Navbar() {
@@ -84,7 +79,7 @@ export default function Navbar() {
                 : "border-white/40 text-white"
             }`}
           >
-            Inquire
+            Contact
           </a>
         </div>
 
@@ -154,7 +149,7 @@ export default function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="inline-block self-start rounded-full border border-gold px-8 py-3 font-sans text-xs uppercase tracking-[0.15em] text-gold transition-all hover:bg-gold hover:text-charcoal"
               >
-                Inquire
+                Contact
               </a>
             </div>
           </motion.div>
