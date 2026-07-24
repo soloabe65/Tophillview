@@ -70,7 +70,7 @@ export default function BookingWizard() {
   if (selectedRoom !== null && nights > 0) {
     const room = rooms[selectedRoom];
     total = room.price * (room.period === "/night" ? nights : 1);
-    if (nights > 7) discount = 0.15;
+    if (nights >= 7) discount = 0.15;
   }
   const discountAmount = total * discount;
   const finalTotal = total - discountAmount;
@@ -385,17 +385,18 @@ export default function BookingWizard() {
               {total > 0 && (
                 <div className="mt-8 rounded-sm bg-charcoal p-6 text-center">
                   <p className="font-sans text-xs uppercase tracking-[0.2em] text-stone-light">Total</p>
-                  <p className="mt-1 font-serif text-4xl text-gold-light">{formatPrice(finalTotal)}</p>
-                  {rooms[selectedRoom!].period === "/night" && (
-                    <p className="mt-1 font-body text-sm text-stone">
-                      {formatPrice(rooms[selectedRoom!].price)} x {nights} night{nights > 1 ? "s" : ""}
-                    </p>
-                  )}
+                  <p className="mt-3 font-body text-base text-stone">
+                    {rooms[selectedRoom!].period === "/night"
+                      ? formatPrice(rooms[selectedRoom!].price) + " x " + nights + " night" + (nights > 1 ? "s" : "")
+                      : formatPrice(rooms[selectedRoom!].price)}
+                  </p>
+                  <p className="mt-1 font-body text-2xl text-stone-light line-through">{formatPrice(total)}</p>
                   {discount > 0 && (
-                    <p className="mt-2 font-body text-sm text-green-400">
-                      15% Long Stay Discount: -{formatPrice(discountAmount)}
+                    <p className="font-body text-base text-green-400">
+                      15% Long Stay Discount: &minus;{formatPrice(discountAmount)}
                     </p>
                   )}
+                  <p className="mt-2 font-serif text-4xl text-gold-light">{formatPrice(finalTotal)}</p>
                 </div>
               )}
 
@@ -567,17 +568,18 @@ export default function BookingWizard() {
 
                 <div className="rounded-sm bg-charcoal p-6 text-center">
                   <p className="font-sans text-xs uppercase tracking-[0.2em] text-stone-light">Total</p>
-                  <p className="mt-1 font-serif text-4xl text-gold-light">{formatPrice(finalTotal)}</p>
-                  {rooms[selectedRoom!].period === "/night" && (
-                    <p className="mt-1 font-body text-sm text-stone">
-                      {formatPrice(rooms[selectedRoom!].price)} x {nights} night{nights > 1 ? "s" : ""}
-                    </p>
-                  )}
+                  <p className="mt-3 font-body text-base text-stone">
+                    {rooms[selectedRoom!].period === "/night"
+                      ? formatPrice(rooms[selectedRoom!].price) + " x " + nights + " night" + (nights > 1 ? "s" : "")
+                      : formatPrice(rooms[selectedRoom!].price)}
+                  </p>
+                  <p className="mt-1 font-body text-2xl text-stone-light line-through">{formatPrice(total)}</p>
                   {discount > 0 && (
-                    <p className="mt-2 font-body text-sm text-green-400">
-                      15% Long Stay Discount: -{formatPrice(discountAmount)}
+                    <p className="font-body text-base text-green-400">
+                      15% Long Stay Discount: &minus;{formatPrice(discountAmount)}
                     </p>
                   )}
+                  <p className="mt-2 font-serif text-4xl text-gold-light">{formatPrice(finalTotal)}</p>
                 </div>
               </div>
 
