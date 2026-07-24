@@ -12,6 +12,7 @@ const rooms = [
     period: "/night",
     capacity: 6,
     caution: "Caution Fee: N30,000",
+    cautionFee: 30000,
     highlights: ["2 Bedrooms", "Fully Furnished", "Free WiFi", "24/7 Power", "Bar Access"],
   },
   {
@@ -22,6 +23,7 @@ const rooms = [
     period: "/night",
     capacity: 20,
     caution: "Caution Fee: N50,000",
+    cautionFee: 50000,
     highlights: ["Event Space", "Seating for 20", "Bar Service", "Sound System", "Decor Included"],
   },
 ];
@@ -65,15 +67,17 @@ export default function BookingWizard() {
 
   const minCheckOut = checkIn ? addDay(checkIn) : today();
   const nights = checkIn && checkOut && checkOut > checkIn ? daysBetween(checkIn, checkOut) : 0;
-  let total = 0;
+  let roomTotal = 0;
+  let cautionFee = 0;
   let discount = 0;
   if (selectedRoom !== null && nights > 0) {
     const room = rooms[selectedRoom];
-    total = room.price * (room.period === "/night" ? nights : 1);
+    roomTotal = room.price * (room.period === "/night" ? nights : 1);
+    cautionFee = room.cautionFee;
     if (nights >= 7) discount = 0.15;
   }
-  const discountAmount = total * discount;
-  const finalTotal = total - discountAmount;
+  const discountAmount = roomTotal * discount;
+  const finalTotal = roomTotal - discountAmount + cautionFee;
 
   const step1Valid = checkIn && checkOut && checkOut > checkIn && selectedRoom !== null;
 
@@ -114,11 +118,11 @@ export default function BookingWizard() {
       "",
       "*Pricing*",
       room.period === "/night"
-        ? formatPrice(room.price) + " x " + nights + " nights"
+        ? formatPrice(room.price) + " x " + nights + " nights = " + formatPrice(room.price * nights)
         : formatPrice(room.price) + " (flat rate)",
+      "Caution fee: " + formatPrice(room.cautionFee),
       discount > 0 ? "Discount (15%): -" + formatPrice(discountAmount) : "",
       "Total: " + formatPrice(finalTotal),
-      room.caution,
       "",
       form.specialRequests.trim() ? "*Special Requests*\n" + form.specialRequests.trim() : "",
       "",
@@ -382,7 +386,7 @@ export default function BookingWizard() {
                 </div>
               </div>
 
-              {total > 0 && (
+              {roomTotal > 0 && (
                 <div className="mt-8 rounded-sm bg-charcoal p-6 text-center">
                   <p className="font-sans text-xs uppercase tracking-[0.2em] text-stone-light">Total</p>
                   <p className="mt-3 font-body text-base text-stone">
@@ -390,11 +394,16 @@ export default function BookingWizard() {
                       ? formatPrice(rooms[selectedRoom!].price) + " x " + nights + " night" + (nights > 1 ? "s" : "")
                       : formatPrice(rooms[selectedRoom!].price)}
                   </p>
-                  <p className="mt-1 font-body text-2xl text-stone-light line-through">{formatPrice(total)}</p>
+                  <p className="font-body text-base text-stone">
+                    + {formatPrice(cautionFee)} caution fee
+                  </p>
                   {discount > 0 && (
-                    <p className="font-body text-base text-green-400">
-                      15% Long Stay Discount: &minus;{formatPrice(discountAmount)}
-                    </p>
+                    <>
+                      <p className="mt-1 font-body text-2xl text-stone-light line-through">{formatPrice(roomTotal + cautionFee)}</p>
+                      <p className="font-body text-base text-green-400">
+                        15% Long Stay Discount: &minus;{formatPrice(discountAmount)}
+                      </p>
+                    </>
                   )}
                   <p className="mt-2 font-serif text-4xl text-gold-light">{formatPrice(finalTotal)}</p>
                 </div>
@@ -573,11 +582,16 @@ export default function BookingWizard() {
                       ? formatPrice(rooms[selectedRoom!].price) + " x " + nights + " night" + (nights > 1 ? "s" : "")
                       : formatPrice(rooms[selectedRoom!].price)}
                   </p>
-                  <p className="mt-1 font-body text-2xl text-stone-light line-through">{formatPrice(total)}</p>
+                  <p className="font-body text-base text-stone">
+                    + {formatPrice(cautionFee)} caution fee
+                  </p>
                   {discount > 0 && (
-                    <p className="font-body text-base text-green-400">
-                      15% Long Stay Discount: &minus;{formatPrice(discountAmount)}
-                    </p>
+                    <>
+                      <p className="mt-1 font-body text-2xl text-stone-light line-through">{formatPrice(roomTotal + cautionFee)}</p>
+                      <p className="font-body text-base text-green-400">
+                        15% Long Stay Discount: &minus;{formatPrice(discountAmount)}
+                      </p>
+                    </>
                   )}
                   <p className="mt-2 font-serif text-4xl text-gold-light">{formatPrice(finalTotal)}</p>
                 </div>
