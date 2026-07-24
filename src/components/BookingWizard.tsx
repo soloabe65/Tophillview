@@ -66,10 +66,14 @@ export default function BookingWizard() {
   const minCheckOut = checkIn ? addDay(checkIn) : today();
   const nights = checkIn && checkOut && checkOut > checkIn ? daysBetween(checkIn, checkOut) : 0;
   let total = 0;
+  let discount = 0;
   if (selectedRoom !== null && nights > 0) {
     const room = rooms[selectedRoom];
     total = room.price * (room.period === "/night" ? nights : 1);
+    if (nights > 7) discount = 0.15;
   }
+  const discountAmount = total * discount;
+  const finalTotal = total - discountAmount;
 
   const step1Valid = checkIn && checkOut && checkOut > checkIn && selectedRoom !== null;
 
@@ -112,7 +116,8 @@ export default function BookingWizard() {
       room.period === "/night"
         ? formatPrice(room.price) + " x " + nights + " nights"
         : formatPrice(room.price) + " (flat rate)",
-      "Total: " + formatPrice(total),
+      discount > 0 ? "Discount (15%): -" + formatPrice(discountAmount) : "",
+      "Total: " + formatPrice(finalTotal),
       room.caution,
       "",
       form.specialRequests.trim() ? "*Special Requests*\n" + form.specialRequests.trim() : "",
@@ -128,7 +133,7 @@ export default function BookingWizard() {
       "",
       "Guest: " + form.name,
       "Room: " + rooms[selectedRoom!].name,
-      "Amount Paid: " + formatPrice(total),
+      "Amount Paid: " + formatPrice(finalTotal),
       "",
       "Please find my payment receipt attached.",
       "",
@@ -182,7 +187,7 @@ export default function BookingWizard() {
               <p><span className="text-stone">Bank:</span> GTBank</p>
               <p><span className="text-stone">Account Name:</span> TOPHILLVIEW LUXURY APARTMENTS</p>
               <p><span className="text-stone">Account Number:</span> 0123 456 7890</p>
-              <p><span className="text-stone">Amount Due:</span> {formatPrice(total)}</p>
+              <p><span className="text-stone">Amount Due:</span> {formatPrice(finalTotal)}</p>
             </div>
           </div>
 
@@ -337,7 +342,7 @@ export default function BookingWizard() {
                             className="h-full w-full object-cover transition-all duration-500 group-hover:scale-105"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 to-transparent" />
-                          <div className="absolute bottom-4 left-4 right-4">
+                          <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2">
                             <span
                               className={`inline-block rounded-full px-3 py-1 font-sans text-[10px] uppercase tracking-[0.1em] ${
                                 selected
@@ -346,6 +351,9 @@ export default function BookingWizard() {
                               }`}
                             >
                               {selected ? "Selected" : "Available"}
+                            </span>
+                            <span className="inline-block rounded-full bg-amber-500 px-3 py-1 font-sans text-[10px] uppercase tracking-[0.1em] text-charcoal">
+                              15% off 7+ nights
                             </span>
                           </div>
                         </div>
@@ -377,10 +385,15 @@ export default function BookingWizard() {
               {total > 0 && (
                 <div className="mt-8 rounded-sm bg-charcoal p-6 text-center">
                   <p className="font-sans text-xs uppercase tracking-[0.2em] text-stone-light">Total</p>
-                  <p className="mt-1 font-serif text-4xl text-gold-light">{formatPrice(total)}</p>
+                  <p className="mt-1 font-serif text-4xl text-gold-light">{formatPrice(finalTotal)}</p>
                   {rooms[selectedRoom!].period === "/night" && (
                     <p className="mt-1 font-body text-sm text-stone">
                       {formatPrice(rooms[selectedRoom!].price)} x {nights} night{nights > 1 ? "s" : ""}
+                    </p>
+                  )}
+                  {discount > 0 && (
+                    <p className="mt-2 font-body text-sm text-green-400">
+                      15% Long Stay Discount: -{formatPrice(discountAmount)}
                     </p>
                   )}
                 </div>
@@ -554,10 +567,15 @@ export default function BookingWizard() {
 
                 <div className="rounded-sm bg-charcoal p-6 text-center">
                   <p className="font-sans text-xs uppercase tracking-[0.2em] text-stone-light">Total</p>
-                  <p className="mt-1 font-serif text-4xl text-gold-light">{formatPrice(total)}</p>
+                  <p className="mt-1 font-serif text-4xl text-gold-light">{formatPrice(finalTotal)}</p>
                   {rooms[selectedRoom!].period === "/night" && (
                     <p className="mt-1 font-body text-sm text-stone">
                       {formatPrice(rooms[selectedRoom!].price)} x {nights} night{nights > 1 ? "s" : ""}
+                    </p>
+                  )}
+                  {discount > 0 && (
+                    <p className="mt-2 font-body text-sm text-green-400">
+                      15% Long Stay Discount: -{formatPrice(discountAmount)}
                     </p>
                   )}
                 </div>
