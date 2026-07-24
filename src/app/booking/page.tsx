@@ -6,5 +6,9 @@ export const metadata = {
 };
 
 export default function BookingPage() {
-  return <BookingWizard />;
+  return (
+    <div className="pt-24">
+      <BookingWizard />
+    </div>
+  );
 }
