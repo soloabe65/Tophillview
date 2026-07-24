@@ -41,7 +41,7 @@ const features = [
 export default function About() {
   return (
     <section id="residences" className="relative bg-cream">
-      <div className="mx-auto max-w-7xl px-6 pb-20 pt-32 lg:px-8 lg:pb-28 lg:pt-44">
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-32 lg:px-8 lg:pb-16 lg:pt-44">
         <FadeInSection>
           <span className="font-sans text-xs uppercase tracking-[0.35em] text-gold-dark">
             Welcome

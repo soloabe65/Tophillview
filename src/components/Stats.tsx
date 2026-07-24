@@ -29,7 +29,7 @@ export default function Stats() {
     <section className="relative border-y border-charcoal/5 bg-cream">
       <div
         ref={ref}
-        className="mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32"
+        className="mx-auto max-w-7xl px-6 pb-16 pt-8 lg:px-8 lg:pb-24 lg:pt-12"
       >
         <div className="grid gap-12 text-center md:grid-cols-4">
           {stats.map((stat, i) => (
