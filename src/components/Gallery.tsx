@@ -13,6 +13,15 @@ const images = [
   { src: "/images/gallery-7.webp", alt: "Living room with brown settings and TV left side view", span: "" },
   { src: "/images/gallery-8.webp", alt: "Living room with bright lights", span: "" },
   { src: "/images/gallery-9.webp", alt: "Living room with brown curtains", span: "lg:col-span-2 lg:row-span-2" },
+  { src: "/images/gallery-10.webp", alt: "Apartment interior view", span: "" },
+  { src: "/images/gallery-11.webp", alt: "Apartment living space", span: "" },
+  { src: "/images/gallery-12.webp", alt: "Modern apartment design", span: "" },
+  { src: "/images/gallery-13.webp", alt: "Apartment room interior", span: "" },
+  { src: "/images/gallery-14.webp", alt: "Luxury apartment feature", span: "" },
+  { src: "/images/gallery-15.webp", alt: "Apartment ambiance", span: "" },
+  { src: "/images/gallery-16.webp", alt: "Apartment detail view", span: "" },
+  { src: "/images/gallery-17.webp", alt: "Apartment living area", span: "" },
+  { src: "/images/gallery-18.webp", alt: "Apartment interior showcase", span: "lg:col-span-2 lg:row-span-2" },
 ];
 
 export default function Gallery() {
@@ -40,7 +49,7 @@ export default function Gallery() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-3">
+        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-6">
           {images.map((img, i) => (
             <motion.button
               key={img.alt}

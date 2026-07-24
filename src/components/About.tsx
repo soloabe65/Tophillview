@@ -67,6 +67,16 @@ export default function About() {
           </FadeInSection>
         </div>
 
+        <FadeInSection>
+          <div className="mt-24 overflow-hidden rounded-sm">
+            <img
+              src="/images/about-hero.webp"
+              alt="TOPHILLVIEW building exterior"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </FadeInSection>
+
         <div className="mt-24 grid gap-16 md:grid-cols-3 md:gap-12">
           {features.map((feature, i) => (
             <FadeInSection key={feature.number}>
