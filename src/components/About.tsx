@@ -34,7 +34,7 @@ const features = [
   {
     number: "03",
     title: "Prime Location",
-    description: "Situated at 14 Okpebholo Akhere Ave, Kubwa, Abuja — close to everything you need.",
+    description: "Situated at Kubwa Estate, Beside The Kubwa General Hospital — close to everything you need.",
   },
 ];
 

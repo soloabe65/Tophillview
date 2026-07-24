@@ -26,6 +26,21 @@ export default function Contact() {
             Schedule a private viewing or request a brochure to discover
             the unparalleled lifestyle that awaits at TopHill View.
           </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-6">
+            <a
+              href="tel:+2347053232314"
+              className="font-body text-lg text-gold-dark transition-colors hover:text-gold"
+            >
+              2347053232314
+            </a>
+            <span className="hidden text-stone sm:inline">|</span>
+            <a
+              href="tel:+2349039919900"
+              className="font-body text-lg text-gold-dark transition-colors hover:text-gold"
+            >
+              2349039919900
+            </a>
+          </div>
         </motion.div>
 
         <motion.form

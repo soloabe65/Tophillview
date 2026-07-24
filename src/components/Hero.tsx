@@ -49,7 +49,7 @@ export default function Hero() {
           className="mb-4"
         >
           <span className="font-sans text-xs uppercase tracking-[0.4em] text-gold-light">
-            Where Elegance Meets Comfort in Kubwa, Abuja
+            Kubwa Estate, Beside The Kubwa General Hospital
           </span>
         </motion.div>
 
@@ -70,7 +70,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-white/70 md:text-xl"
         >
-          14 Okpebholo Akhere Ave, Kubwa, Abuja — where elegance and
+          Kubwa Estate, Beside The Kubwa General Hospital — where elegance and
           sophistication meet unparalleled comfort.
         </motion.p>
 

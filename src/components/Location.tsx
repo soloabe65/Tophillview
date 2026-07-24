@@ -33,9 +33,9 @@ export default function Location() {
               <span className="text-gold">of the City</span>
             </h2>
             <p className="mt-6 font-body text-lg leading-relaxed text-stone-light">
-              Conveniently located at 14 Okpebholo Akhere Ave in Kubwa, Abuja,
-              TOPHILLVIEW LUXURY APARTMENTS puts you close to everything that
-              matters — markets, dining, and transport links — while offering
+              Conveniently located at Kubwa Estate, Beside The Kubwa General
+              Hospital, TOPHILLVIEW LUXURY APARTMENTS puts you close to everything
+              that matters — markets, dining, and transport links — while offering
               a peaceful retreat to call home.
             </p>
 
@@ -51,8 +51,54 @@ export default function Location() {
             </div>
           </div>
 
-          <div className="flex items-center justify-center">
-            <div className="flex h-full min-h-[300px] w-full items-center justify-center rounded-sm border border-white/10 bg-charcoal-light">
+          <div className="space-y-8">
+            <div className="rounded-sm border border-white/10 bg-charcoal-light p-8">
+              <h3 className="font-serif text-2xl text-gold">Room Rates</h3>
+              <div className="mt-6 space-y-6">
+                <div>
+                  <p className="font-serif text-lg text-white">
+                    2 Bedroom Well Furnished Apartment
+                  </p>
+                  <p className="mt-2 font-body text-3xl text-gold-light">
+                    N100,000<span className="text-sm text-stone"> /night</span>
+                  </p>
+                  <p className="mt-1 font-sans text-xs uppercase tracking-[0.1em] text-stone">
+                    Caution Fee: N30,000
+                  </p>
+                </div>
+                <div className="border-t border-white/10 pt-6">
+                  <p className="font-serif text-lg text-white">
+                    Birthday Party Package
+                  </p>
+                  <p className="mt-2 font-body text-3xl text-gold-light">
+                    N150,000
+                  </p>
+                  <p className="mt-1 font-sans text-xs uppercase tracking-[0.1em] text-stone">
+                    Caution Fee: N50,000
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-sm border border-white/10 bg-charcoal-light p-8">
+              <h3 className="font-serif text-2xl text-gold">Contact</h3>
+              <div className="mt-4 space-y-2">
+                <a
+                  href="tel:+2347053232314"
+                  className="block font-body text-lg text-white transition-colors hover:text-gold-light"
+                >
+                  2347053232314
+                </a>
+                <a
+                  href="tel:+2349039919900"
+                  className="block font-body text-lg text-white transition-colors hover:text-gold-light"
+                >
+                  2349039919900
+                </a>
+              </div>
+            </div>
+
+            <div className="flex h-full min-h-[200px] w-full items-center justify-center rounded-sm border border-white/10 bg-charcoal-light">
               <div className="text-center">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="mx-auto h-12 w-12 text-stone">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -62,7 +108,7 @@ export default function Location() {
                   Interactive Map
                 </p>
                 <p className="mt-2 font-body text-sm text-stone-light">
-                  14 Okpebholo Akhere Ave, Kubwa, Abuja
+                  Kubwa Estate, Beside The Kubwa General Hospital
                 </p>
               </div>
             </div>

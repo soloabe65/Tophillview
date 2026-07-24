@@ -22,17 +22,17 @@ export default function Footer() {
             </h4>
             <address className="mt-6 space-y-3 not-italic">
               <p className="font-body text-base text-stone-light">
-                14 Okpebholo Akhere Ave
+                Kubwa Estate, Beside The Kubwa General Hospital
               </p>
               <p className="font-body text-base text-stone-light">
-                Kubwa, Abuja 901101, FCT
+                Kubwa, Abuja, FCT
               </p>
-              <p className="font-body text-base text-stone-light">
-                +234 800 TOPHILLVIEW
-              </p>
-              <p className="font-body text-base text-stone-light">
-                info@tophillview.com
-              </p>
+              <a href="tel:+2347053232314" className="block font-body text-base text-stone-light transition-colors hover:text-gold-light">
+                2347053232314
+              </a>
+              <a href="tel:+2349039919900" className="block font-body text-base text-stone-light transition-colors hover:text-gold-light">
+                2349039919900
+              </a>
             </address>
           </div>
 
