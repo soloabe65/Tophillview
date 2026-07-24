@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
+  { label: "Home", href: "/" },
   { label: "Residences", href: "/#residences" },
   { label: "Amenities", href: "/#amenities" },
   { label: "Gallery", href: "/#gallery" },
@@ -33,7 +34,7 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-        <a href="#" className="relative z-10">
+        <a href="/" className="relative z-10">
           <span
             className={`font-serif text-xl tracking-[0.3em] transition-colors duration-700 ${
               scrolled ? "text-gold" : "text-white"
