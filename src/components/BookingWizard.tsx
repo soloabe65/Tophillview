@@ -19,7 +19,7 @@ const rooms = [
     img: "/images/gallery-4.webp",
     name: "Birthday Party Package",
     price: 150000,
-    period: "flat",
+    period: "/night",
     capacity: 20,
     caution: "Caution Fee: N50,000",
     highlights: ["Event Space", "Seating for 20", "Bar Service", "Sound System", "Decor Included"],
