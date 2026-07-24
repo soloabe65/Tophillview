@@ -26,7 +26,7 @@ const rooms = [
   },
 ];
 
-const WHATSAPP_NUMBER = "2347053232314";
+const WHATSAPP_NUMBER = "2349039919900";
 
 function formatPrice(n: number) {
   return "N" + n.toLocaleString("en-US");
@@ -65,7 +65,11 @@ export default function BookingWizard() {
 
   const minCheckOut = checkIn ? addDay(checkIn) : today();
   const nights = checkIn && checkOut && checkOut > checkIn ? daysBetween(checkIn, checkOut) : 0;
-  const total = selectedRoom !== null && nights ? rooms[selectedRoom].price * (rooms[selectedRoom].period === "/night" ? nights : 1) : 0;
+  let total = 0;
+  if (selectedRoom !== null && nights > 0) {
+    const room = rooms[selectedRoom];
+    total = room.price * (room.period === "/night" ? nights : 1);
+  }
 
   const step1Valid = checkIn && checkOut && checkOut > checkIn && selectedRoom !== null;
 
