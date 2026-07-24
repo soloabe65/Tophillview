@@ -24,10 +24,12 @@ export default function Hero() {
         muted
         loop
         playsInline
+        preload="metadata"
         poster="/images/hero-fallback.webp"
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        <track kind="captions" src="/captions/hero-bg.vtt" srcLang="en" label="English" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal/60 via-charcoal/40 to-charcoal/80" />

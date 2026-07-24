@@ -17,9 +17,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-sans text-xs uppercase tracking-[0.25em] text-gold">
+            <h3 className="font-sans text-xs uppercase tracking-[0.25em] text-gold">
               Contact
-            </h4>
+            </h3>
             <address className="mt-6 space-y-3 not-italic">
               <p className="font-body text-base text-stone-light">
                 Kubwa Estate, Beside The Kubwa General Hospital
@@ -37,9 +37,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-sans text-xs uppercase tracking-[0.25em] text-gold">
+            <h3 className="font-sans text-xs uppercase tracking-[0.25em] text-gold">
               Quick Links
-            </h4>
+            </h3>
             <nav className="mt-6 flex flex-col gap-3">
               <a href="/#residences" className="font-body text-base text-stone-light transition-colors hover:text-gold-light">
                 Residences

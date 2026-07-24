@@ -68,21 +68,17 @@ export default function Gallery() {
             const stackIndex = (i - active + images.length) % images.length;
             const isTop = stackIndex === 0;
 
-            return (
-              <motion.button
-                key={img.alt}
-                onClick={() => goTo(i)}
-                animate={{
-                  x: isTop ? 0 : 8 + stackIndex * 6,
-                  y: isTop ? 0 : 8 + stackIndex * 6,
-                  scale: isTop ? 1 : 1 - stackIndex * 0.015,
-                  opacity: isTop ? 1 : Math.max(0.1, 0.35 - stackIndex * 0.025),
-                  zIndex: images.length - stackIndex,
-                }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0 overflow-hidden rounded-sm"
-                style={{ pointerEvents: isTop ? "auto" : "none" }}
-              >
+            const anim = {
+              x: isTop ? 0 : 8 + stackIndex * 6,
+              y: isTop ? 0 : 8 + stackIndex * 6,
+              scale: isTop ? 1 : 1 - stackIndex * 0.015,
+              opacity: isTop ? 1 : Math.max(0.1, 0.35 - stackIndex * 0.025),
+              zIndex: images.length - stackIndex,
+            };
+            const transition = { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const };
+
+            const content = (
+              <>
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -99,7 +95,29 @@ export default function Gallery() {
                     </p>
                   </div>
                 )}
+              </>
+            );
+
+            return isTop ? (
+              <motion.button
+                key={img.alt}
+                onClick={() => goTo(i)}
+                animate={anim}
+                transition={transition}
+                className="absolute inset-0 overflow-hidden rounded-sm"
+              >
+                {content}
               </motion.button>
+            ) : (
+              <motion.div
+                key={img.alt}
+                aria-hidden="true"
+                animate={anim}
+                transition={transition}
+                className="absolute inset-0 overflow-hidden rounded-sm"
+              >
+                {content}
+              </motion.div>
             );
           })}
         </div>

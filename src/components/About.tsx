@@ -70,9 +70,9 @@ export default function About() {
         <FadeInSection>
           <div className="mt-24 overflow-hidden rounded-sm">
             <img
-              src="/images/about-hero.webp"
+              src="/images/about-hero-sm.webp"
               alt="TOPHILLVIEW building exterior"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover" loading="lazy"
             />
           </div>
         </FadeInSection>

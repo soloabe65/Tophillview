@@ -6,12 +6,12 @@ import { useInView } from "framer-motion";
 
 const amenities = [
   {
-    img: "/images/amenity-bar.webp",
+    img: "/images/amenity-bar-sm.webp",
     title: "Bar",
     description: "Step up to our elegantly stocked bar — premium drinks, expert service, and a warm glow that sets the mood for the evening.",
   },
   {
-    img: "/images/amenity-lounge.webp",
+    img: "/images/amenity-lounge-sm.webp",
     title: "Lounge",
     description: "Sink into deep seating bathed in cool blue light. Cocktails in hand, soft conversation in the air — the perfect night in.",
   },
