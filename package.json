@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/inline-css.mjs",
+    "build": "node scripts/generate-gallery-data.mjs && next build && node scripts/inline-css.mjs",
+    "generate:gallery": "node scripts/generate-gallery-data.mjs",
     "start": "next start",
     "lint": "eslint",
     "deploy": "npm run build && npx wrangler pages deploy out"
