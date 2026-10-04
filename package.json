@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/generate-gallery-data.mjs && next build && node scripts/inline-css.mjs",
+    "build": "node scripts/build.mjs",
+    "build:site": "node scripts/generate-gallery-data.mjs && next build && node scripts/inline-css.mjs",
     "generate:gallery": "node scripts/generate-gallery-data.mjs",
     "start": "next start",
     "lint": "eslint",
