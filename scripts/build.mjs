@@ -1,11 +1,13 @@
 import { execSync } from "node:child_process";
 import { rmSync, mkdirSync, writeFileSync } from "node:fs";
 
-// Build the real site first
-execSync("npx next build", { stdio: "inherit" });
+// Run your full original build (gallery data + next build + inline css)
+execSync("npm run build:site", { stdio: "inherit" });
 
-// If the lock is on, throw away the real site and ship only a placeholder
-if (process.env.DEMO_LOCK === "true") {
+// Lock is ON by default. Only DEMO_LOCK=false unlocks the real site.
+const locked = process.env.DEMO_LOCK !== "false";
+
+if (locked) {
   rmSync("out", { recursive: true, force: true });
   mkdirSync("out");
 
@@ -35,5 +37,7 @@ if (process.env.DEMO_LOCK === "true") {
 </html>`;
 
   writeFileSync("out/index.html", html);
-  console.log("DEMO_LOCK is ON: deployed placeholder only.");
+  console.log("DEMO LOCK ON: placeholder only.");
+} else {
+  console.log("DEMO LOCK OFF: real site deployed.");
 }
