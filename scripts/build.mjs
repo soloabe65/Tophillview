@@ -25,13 +25,19 @@ if (locked) {
     h1{font-size:1.75rem;margin-bottom:.5rem}
     p{color:#94a3b8;line-height:1.6}
     a{color:#38bdf8}
+    .wa{display:inline-block;margin-top:1.25rem;padding:.8rem 1.5rem;
+        background:#25d366;color:#fff;font-weight:600;text-decoration:none;
+        border-radius:999px}
+    .wa:hover{background:#1ebe5b}
+    .mail{display:block;margin-top:1rem;font-size:.9rem}
   </style>
 </head>
 <body>
   <div class="box">
     <h1>This demo preview has ended</h1>
-    <p>This was a temporary preview link. To continue with this project, contact
-    <a href="mailto:webdev@talent-loop.org">webdev@talent-loop.org</a>.</p>
+    <p>This was a temporary preview link. To continue with this project, chat with us on WhatsApp.</p>
+    <a class="wa" href="https://wa.me/2349069137205?text=Hello%2C%20I%20saw%20the%20demo%20preview%20and%20I%20would%20like%20to%20continue%20with%20the%20project." target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <a class="mail" href="mailto:webdev@talent-loop.org">or email webdev@talent-loop.org</a>
   </div>
 </body>
 </html>`;
