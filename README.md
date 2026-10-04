@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Top Hill View Luxury Apartments
 
-## Getting Started
+A demo website for a luxury apartments business, designed and built by Nathaniel Kenny Olie (Talent Loop Webdev Services) to show what I can build with Next.js and TypeScript.
 
-First, run the development server:
+**Live demo:** [add your Cloudflare Pages link]
 
+## Stack
+- Next.js 16 and React 19
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion for animation
+- Deployed to Cloudflare Pages as a static export
+
+## Features
+- Responsive layout for phones, tablets and desktops
+- A dedicated gallery page with photo and video support
+- A build script that finds the gallery media automatically and generates the gallery data, so adding a photo or video doesn't need code changes
+- Build step that inlines CSS to speed up the first paint
+
+## Run locally
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Then open http://localhost:3000.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build and deploy
+```bash
+npm run build
+npm run deploy
+```
+The deploy script builds the site and publishes the `out` folder to Cloudflare Pages with Wrangler.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Built with AI tools
+I built this with an AI coding agent, then reviewed, tested and adjusted the result. The agent instruction files (`AGENTS.md` and `CLAUDE.md`) are included in the repo.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contact: webdev@talent-loop.org
